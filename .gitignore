@@ -1,14 +1,18 @@
-# Compiler files
 cache/
 out/
+.gas-snapshot
+.vscode/
+.encryptedKey
+broadcast/
 
-# Ignores development broadcast logs
-!/broadcast
-/broadcast/*/31337/
-/broadcast/**/dry-run/
+node_modules
+package-lock.json
 
-# Docs
-docs/
+.DS_Store
+src/.DS_Store
 
 # Dotenv file
 .env
+script/Counter.s.sol
+test/Counter.t.sol
+src/Counter.sol

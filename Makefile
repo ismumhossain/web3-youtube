@@ -10,7 +10,7 @@ clean  :; forge clean
 # Remove modules
 remove :; rm -rf .gitmodules && rm -rf .git/modules/* && rm -rf lib && touch .gitmodules && git add . && git commit -m "modules"
 
-install :; forge install smartcontractkit/chainlink-brownie-contracts && forge install foundry-rs/forge-std
+install :; forge install foundry-rs/forge-std
 
 # Update Dependencies
 update:; forge update
@@ -23,7 +23,7 @@ snapshot :; forge snapshot
 
 slither :; slither ./src 
 
-format :; prettier --write src/*.sol && prettier --write script/*.sol && prettier --write test/**/*.sol && prettier --write test/*.sol
+format :; prettier --write src/**/*.sol && prettier --write script/*.sol # && prettier --write test/*.sol
 
 # solhint should be installed globally
 lint :; solhint src/**/*.sol && solhint src/*.sol

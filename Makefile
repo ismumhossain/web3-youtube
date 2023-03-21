@@ -23,7 +23,7 @@ snapshot :; forge snapshot
 
 slither :; slither ./src 
 
-format :; prettier --write src/**/*.sol && prettier --write script/*.sol # && prettier --write test/*.sol
+format :; prettier --write src/**/*.sol && prettier --write src/*.sol && prettier --write script/*.sol && prettier --write test/*.sol
 
 # solhint should be installed globally
 lint :; solhint src/**/*.sol && solhint src/*.sol

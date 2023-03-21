@@ -5,7 +5,6 @@ import {Errors} from "./lib/Errors.sol";
 import {Events} from "./lib/Events.sol";
 
 contract Web3Video {
-
     struct Video {
         uint256 views;
         uint256 likes;
@@ -42,7 +41,7 @@ contract Web3Video {
         if (!channelExist(msg.sender)) {
             revert Errors.CreateChannel();
         }
-        delete(channels[msg.sender]);
+        delete (channels[msg.sender]);
         emit Events.ChannelDeleted(msg.sender);
     }
 
@@ -61,11 +60,7 @@ contract Web3Video {
         emit Events.VideoUploaded(hash, name, category);
     }
 
-    function deleteVideo(
-        uint256 index,
-        string memory name,
-        string memory hash
-    ) external {
+    function deleteVideo(uint256 index, string memory name, string memory hash) external {
         if (!channelExist(msg.sender)) {
             revert Errors.CreateChannel();
         }
@@ -75,7 +70,6 @@ contract Web3Video {
         delete videos[hash];
         string[] storage _videos = channels[msg.sender].videos;
         require(index < _videos.length);
-        delete _videos[index];
         _videos[index] = _videos[_videos.length - 1];
         _videos.pop();
         emit Events.VideoDeleted(name, hash);
@@ -139,7 +133,7 @@ contract Web3Video {
         string memory name,
         string memory category,
         string memory hash
-    ) internal view returns (bool) {
+    ) public view returns (bool) {
         Channel memory channel = channels[msg.sender];
         Video memory video = videos[hash];
         if (index >= channel.videos.length) {
